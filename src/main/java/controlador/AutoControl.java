@@ -14,6 +14,8 @@ import servicio.AutoServicio;
  * @author USER
  */
 public class AutoControl {
+    
+    
 
     public AutoServicio autoServicio = new AutoServicio();
 
