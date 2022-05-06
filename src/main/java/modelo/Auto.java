@@ -10,20 +10,68 @@ package modelo;
  */
 public class Auto {
     
+    private int codigo;
     private String marca;
-    private String modelo;
     private int year;
-    private String email;
+    private String placa;
     private Propietario propietario;
 
-    public Auto(String marca, String modelo, int year, String email, 
-            Propietario propietario) {
-        
+    public Auto(int codigo, String marca, int year, String placa) {
+        this.codigo = codigo;
         this.marca = marca;
-        this.modelo = modelo;
         this.year = year;
-        this.email = email;
+        this.placa = placa;
+    }
+
+    public String obtenerProvincia(){
+        var retorno = "IBD";
+            var primerCaracterPlaca = this.placa.charAt(0);
+            switch(primerCaracterPlaca)
+            {
+                case 'A':
+                    retorno = "Azuay";
+                    break;
+                case 'B':
+                    retorno = "Bolivar";
+                    break;
+                case 'C':
+                    retorno = "Carchi";
+                    break;   
+                case 'U':
+                    retorno = "Cañar";
+                    break;
+                case 'G':
+                    retorno = "Guayas";
+                    break;
+                case 'P':
+                    retorno = "Pichincha";
+                    break;
+                default:
+                    retorno = "Provincia no disponible";
+            }
+           return retorno; 
+    }
+    
+    public int calcularYears(){
+        var retorno = 100000;
+                retorno = 2022 - year;
+            return retorno;
+    }
+    
+    public Auto(int codigo, String marca, int year, String placa, Propietario propietario) {
+        this.codigo = codigo;
+        this.marca = marca;
+        this.year = year;
+        this.placa = placa;
         this.propietario = propietario;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getMarca() {
@@ -34,14 +82,6 @@ public class Auto {
         this.marca = marca;
     }
 
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
     public int getYear() {
         return year;
     }
@@ -50,12 +90,12 @@ public class Auto {
         this.year = year;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPlaca() {
+        return placa;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public Propietario getPropietario() {
@@ -68,10 +108,9 @@ public class Auto {
 
     @Override
     public String toString() {
-        return "Auto{" + "marca=" + marca + ", modelo=" + modelo + ", year=" + 
-               year + ", email=" + email + ", propietario=" + propietario + '}';
+        return "Auto{" + "codigo=" + codigo + ", marca=" + marca + ", year=" 
+                + year + ", placa=" + placa + ", propietario=" + propietario + '}';
     }
-    
     
     
 }

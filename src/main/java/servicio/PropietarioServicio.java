@@ -12,28 +12,48 @@ import modelo.Propietario;
  *
  * @author USER
  */
-public class PropietarioServicio {
-    
+public class PropietarioServicio implements IPropietarioServicio {
+
     private final List<Propietario> propietarioList = new ArrayList<>();
     
-     public Propietario crear(Propietario propietario){
-        this.propietarioList.add(propietario);
-        return propietario;
-    }
-     
-     public List<Propietario> listar(){   
-        return this.propietarioList;
-        
-    }   
-     
-    public Propietario modificar(Propietario propietario){
-        this.propietarioList.add(propietario);
-        return propietario;
-    }
-    
-    public Propietario eliminar(Propietario propietario){
+    @Override
+    public Propietario crear(Propietario propietario) {
         this.propietarioList.add(propietario);
         return propietario;
     }
 
+    @Override
+    public List<Propietario> listar() {
+    return this.propietarioList;
+    }
+
+    @Override
+    public Propietario modificar(int codigo, Propietario propietario) {
+    this.propietarioList.set(this.buscarPosicion(codigo), propietario);
+    return propietario;
+    }
+
+    @Override
+    public Propietario eliminar(int codigo) {
+    var propietario = this.propietarioList.get(this.buscarPosicion(codigo));
+    this.propietarioList.remove(this.buscarPosicion(codigo));
+    return propietario;
+    }
+
+    @Override
+    public int buscarPosicion(int codigo) {
+    var posicion=-1;
+        var i=0;
+        for(var auxPropietario:this.propietarioList){
+            if(auxPropietario.getCodigo()==codigo){
+                posicion=i;
+                break;
+            }
+            i++;
+        }
+        return posicion;
+        
+    }
+    
+    
 }

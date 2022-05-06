@@ -10,20 +10,26 @@ package modelo;
  */
 public class Propietario {
     
+    private int codigo;
     private String nombre;
     private String apellido;
     private String cedula;
     private String celular;
-    private String email;
 
-    public Propietario(String nombre, String apellido, String cedula,
-            String celular, String email) {
-        
+    public Propietario(int codigo, String nombre, String apellido, String cedula, String celular) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.celular = celular;
-        this.email = email;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -58,19 +64,11 @@ public class Propietario {
         this.celular = celular;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public String toString() {
-        return "Propietario{" + "nombre=" + nombre + ", apellido=" + apellido
-        + ", cedula=" + cedula + ", celular=" + celular + ", email=" + email + '}';
+        return "Propietario{" + "codigo=" + codigo + ", nombre=" + nombre
+                + ", apellido=" + apellido + ", cedula=" + cedula + ", celular=" + celular + '}';
     }
-    
+
     
 }

@@ -16,6 +16,7 @@ public interface IAutoServicio {
     
    public Auto crear(Auto auto);
     public List<Auto> listar();
-    public Auto modificar(Auto auto);
-    public Auto eliminar(Auto auto);
+    public Auto modificar(int codigo, Auto auto);
+    public Auto eliminar(int codigo);
+    public int buscarPosicion(int c);
 }
