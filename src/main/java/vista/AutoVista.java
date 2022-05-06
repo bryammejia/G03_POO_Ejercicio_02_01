@@ -50,9 +50,8 @@ public class AutoVista {
         System.out.println("-----LISTA MODIFICAR-----");
         var propietario = new Propietario(002, "Bryam", "Morocho", "0105107338", "0985226741");
         var nuevoAuto = new Auto(02, "TESLA", 2020, "ADC-3456", propietario);
-        System.out.println("La placa: " + auto1.getPlaca());
-
-        autoControl.modificar(02, nuevoAuto);
+        
+         autoControl.modificar(02, nuevoAuto);
 
         for (Auto auto : autoControl.listar()) {
             System.out.println(auto.toString());
